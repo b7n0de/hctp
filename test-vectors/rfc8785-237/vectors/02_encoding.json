@@ -102,15 +102,15 @@
           "content_hash": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881",
           "role": "user",
           "seq": 0,
-          "summary": "ab"
+          "summary": "a\u007fb"
         }
       },
       "expected": {
-        "chosen": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "chosen": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "chosen_hex": "7b22636f6e74656e745f68617368223a2232643731313634326237323662303434303136323763613966626163333266356338353330666231393033636334646230323235383731373932316134383831222c22726f6c65223a2275736572222c22736571223a302c2273756d6d617279223a22617f62227d",
-        "rfc8785": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "rfc8785": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "nonconforming_ascii_escape": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\\u007fb\"}",
-        "nonconforming_control_unicode_upper": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "nonconforming_control_unicode_upper": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "chosen_equals_rfc8785": true,
         "root_chosen": "342b80d2d40192e9fcd12c35715c996dc6a3024e63157b5d11df7ba9ca11a1e2",
         "root_rfc8785": "342b80d2d40192e9fcd12c35715c996dc6a3024e63157b5d11df7ba9ca11a1e2",
@@ -1422,15 +1422,15 @@
           "content_hash": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881",
           "role": "user",
           "seq": 0,
-          "summary": "ab"
+          "summary": "a\u007fb"
         }
       },
       "expected": {
-        "chosen": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "chosen": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "chosen_hex": "7b22636f6e74656e745f68617368223a2232643731313634326237323662303434303136323763613966626163333266356338353330666231393033636334646230323235383731373932316134383831222c22726f6c65223a2275736572222c22736571223a302c2273756d6d617279223a22617f62227d",
-        "rfc8785": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "rfc8785": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "nonconforming_ascii_escape": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\\u007fb\"}",
-        "nonconforming_control_unicode_upper": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"ab\"}",
+        "nonconforming_control_unicode_upper": "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\u007fb\"}",
         "chosen_equals_rfc8785": true,
         "root_chosen": "342b80d2d40192e9fcd12c35715c996dc6a3024e63157b5d11df7ba9ca11a1e2",
         "root_rfc8785": "342b80d2d40192e9fcd12c35715c996dc6a3024e63157b5d11df7ba9ca11a1e2",

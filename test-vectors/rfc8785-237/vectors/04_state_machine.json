@@ -4876,7 +4876,7 @@
             "as": "x",
             "seq": 0,
             "static_root": "genesis",
-            "plain": "[{\"content_hash\":\"c7b5ef9be0181ef80d4a54046102d01529e41f3097277fcd6ba7c4c48c65559e\",\"role\":\"user\",\"seq\":0,\"summary\":\"\\\"\\\\/  <>&𝄞\\u001f\\n\\u0000\"}]"
+            "plain": "[{\"content_hash\":\"c7b5ef9be0181ef80d4a54046102d01529e41f3097277fcd6ba7c4c48c65559e\",\"role\":\"user\",\"seq\":0,\"summary\":\"\\\"\\\\/\u007f  <>&𝄞\\u001f\\n\\u0000\"}]"
           },
           {
             "op": "recv",

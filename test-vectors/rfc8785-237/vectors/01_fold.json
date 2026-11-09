@@ -434,14 +434,14 @@
             "content_hash": "2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881",
             "role": "user",
             "seq": 0,
-            "summary": "a\nb\u001fc\"d\\e/f"
+            "summary": "a\nb\u001fc\"d\\e/f\u007f"
           }
         ]
       },
       "expected": {
         "count": 1,
         "canonical": [
-          "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\\nb\\u001fc\\\"d\\\\e/f\"}"
+          "{\"content_hash\":\"2d711642b726b04401627ca9fbac32f5c8530fb1903cc4db02258717921a4881\",\"role\":\"user\",\"seq\":0,\"summary\":\"a\\nb\\u001fc\\\"d\\\\e/f\u007f\"}"
         ],
         "canonical_sha256": [
           "aa6bd4216884b7580a7d10414e9775581ea11a3a3fe64dc3cf4dc0479969f376"
