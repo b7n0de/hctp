@@ -253,49 +253,52 @@
     {
       "id": "number-02",
       "kind": "number",
-      "title": "Number lexeme 1.0: RFC 8785 form and value as seq",
+      "title": "Number lexeme 1.0: not a canonical seq under -01 (fraction), RFC 8785 form kept for comparison",
       "draft_refs": [
-        "Section 3.1, lines 235-241"
+        "Section 3.1, lines 235-241",
+        "draft-ruvalcaba-hctp-01 Section 3.1, lines 308-315"
       ],
-      "valid_input": true,
+      "valid_input": false,
       "input": {
         "lexeme": "1.0"
       },
       "expected": {
         "rfc8785": "1",
-        "seq_value": 1
+        "seq_value": null
       }
     },
     {
       "id": "number-03",
       "kind": "number",
-      "title": "Number lexeme 1e0: RFC 8785 form and value as seq",
+      "title": "Number lexeme 1e0: not a canonical seq under -01 (exponent), RFC 8785 form kept for comparison",
       "draft_refs": [
-        "Section 3.1, lines 235-241"
+        "Section 3.1, lines 235-241",
+        "draft-ruvalcaba-hctp-01 Section 3.1, lines 308-315"
       ],
-      "valid_input": true,
+      "valid_input": false,
       "input": {
         "lexeme": "1e0"
       },
       "expected": {
         "rfc8785": "1",
-        "seq_value": 1
+        "seq_value": null
       }
     },
     {
       "id": "number-04",
       "kind": "number",
-      "title": "Number lexeme -0: RFC 8785 form and value as seq",
+      "title": "Number lexeme -0: not a canonical seq under -01 (sign), RFC 8785 form kept for comparison",
       "draft_refs": [
-        "Section 3.1, lines 235-241"
+        "Section 3.1, lines 235-241",
+        "draft-ruvalcaba-hctp-01 Section 3.1, lines 308-315"
       ],
-      "valid_input": true,
+      "valid_input": false,
       "input": {
         "lexeme": "-0"
       },
       "expected": {
         "rfc8785": "0",
-        "seq_value": 0
+        "seq_value": null
       }
     },
     {

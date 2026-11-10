@@ -5422,17 +5422,18 @@
     {
       "id": "place-38-alternative",
       "kind": "summary",
-      "title": "content_hash in uppercase, case-insensitive comparison",
+      "title": "content_hash in uppercase, case-insensitive comparison: not canonical under -01, no match",
       "draft_refs": [
         "Section 3.1, lines 229-230",
-        "Section 8, lines 567-571"
+        "Section 8, lines 567-571",
+        "draft-ruvalcaba-hctp-01 Section 3.1, lines 317-319"
       ],
-      "valid_input": true,
+      "valid_input": false,
       "reading": {
         "place": 38,
         "place_title": "Checking the raw text",
         "section_lines": "8 lines 567-571; 3.1 lines 229-230",
-        "variant": "alternative"
+        "variant": "nonconforming"
       },
       "input": {
         "block": {
@@ -5445,8 +5446,8 @@
         "case_insensitive": true
       },
       "expected": {
-        "raw_text_check": "match",
-        "status": "unverified",
+        "raw_text_check": "mismatch",
+        "status": "raw_text_mismatch",
         "computed": "71eea649b3249b034472ada67adabf9747f4dd5eb9a4b29ee18b0f1b9d16bcf8"
       }
     },

@@ -22,7 +22,8 @@ decimal integer (place 8).
 The package of 1 November 2026 had 186 cases. This one keeps all of them under the same ids and adds 51.
 
 - Same roots. Every root, canonical form, packet and outcome of the 186 earlier cases is unchanged, because the
-  chosen readings at places 6 and 7 were already this rule. All 412 root values in those cases are the same.
+  chosen readings at places 6 and 7 were already this rule. All 412 root values in those cases are the same. The
+  one exception is the expected result of the four cases under "Following -01" below.
 - Renamed. In encoding-01 to encoding-08 the columns ascii_escape and control_unicode_upper and their roots are now
   nonconforming_ascii_escape, nonconforming_control_unicode_upper, root_nonconforming_ascii_escape and
   root_nonconforming_control_unicode_upper, with the same values. Each encoding case also gives chosen_hex.
@@ -38,6 +39,13 @@ The package of 1 November 2026 had 186 cases. This one keeps all of them under t
   non-conforming way (\u00fc, a surrogate pair escape, \u007f, \u000A, \u001F, \u000a instead of \n, \/), each
   rejected as not canonical, and one SYNC that carries every boundary of the rule written as the rule requires,
   accepted with its ACK.
+- Following -01, Section 3.1. number-02 (1.0), number-03 (1e0) and number-04 (-0) give no seq value any more and
+  valid_input is false: -01, lines 308-315, calls these spellings of seq not canonical, as the chosen reading at
+  place 8 already did. Their RFC 8785 form (1, 1 and 0) is kept for comparison. place-38-alternative (content_hash
+  in uppercase, case-insensitive comparison) has the variant nonconforming, valid_input false and the expected
+  result mismatch: -01, lines 317-319, allows only 64 lowercase hexadecimal digits. Each of the four cases names
+  those lines in draft_refs. place-38-alternative keeps case_insensitive true in its input: under -01 the form of
+  content_hash is checked first, so a content_hash that is not canonical gives no match whatever the comparison.
 
 ## Where they come from
 
@@ -50,7 +58,9 @@ implementation also reproduces all 10 values of the first set of vectors Cristia
 
 All vectors refer to the text of draft-ruvalcaba-hctp-00.txt, 31087 octets, SHA-256
 c9e80197104083f5ec86faf4beddf66b398bb6cd4f15cd7ccd45d841b17f7ad5. Section and line numbers are those of that
-file, lines counted from 1.
+file, lines counted from 1. A reference that starts with draft-ruvalcaba-hctp-01 names the text of -01 that its author shared on
+9 November 2026 before publication, 87115 octets, SHA-256
+1dd7d6a4821b6284c66566b62901461dad259603599bdabb0769c0a0d5ee9e7b; its line numbers can move when -01 is published.
 
 ## Files
 
@@ -61,7 +71,7 @@ file, lines counted from 1.
 | vectors/03_packets.json | 22 | Decoding SYNC and ACK (Section 5): valid packets, empty and short input, unknown versions and packet types, wrong lengths, an oversized dynamic_len; two byte streams for self-delimiting (Section 10) |
 | vectors/04_state_machine.json | 56 | Sender and receiver (Section 6) as scenarios: basic exchange, duplicate SYNC, lost ACK, retransmit limit, replay, integrity and alignment failures, full window, decompression limits, zlib and JSON ingest failures, non-conforming strings, ACK handling, seq limit; both strategies of Section 7 (two direction chains, turn-token) |
 | vectors/05_summaries.json | 12 | Verifiable summaries (Section 8): raw text checks, an agreed test method, an equivalence predicate |
-| vectors/06_readings.json | 65 | For places where the text allows two readings: a case under the chosen reading and the same case under the alternative reading, with outcomes that differ; for places 6 and 7 the rule and a non-conforming encoding |
+| vectors/06_readings.json | 65 | For places where the text allows two readings: a case under the chosen reading and the same case under the alternative reading, with outcomes that differ; for places 6 and 7 the rule and a non-conforming encoding; for place 38 an alternative that -01 makes non-conforming |
 | | 237 | |
 
 SHA256SUMS lists the SHA-256 of every file in this package except itself (`sha256sum -c SHA256SUMS`).
@@ -77,9 +87,9 @@ A case:
 | id | unique across all files |
 | kind | fold, fold_variant, encoding, number, packet, frames, scenario, summary |
 | title | one sentence |
-| draft_refs | sections and lines of -00 the case tests |
+| draft_refs | sections and lines of -00 the case tests, and of -01 where a reference names it |
 | valid_input | true: the input follows the text and must be accepted; false: a rejection, an error or a wrong form is expected |
-| reading | optional: place (number), place_title, section_lines, variant (chosen, alternative, alternative_2; for places 6 and 7: rule, nonconforming) |
+| reading | optional: place (number), place_title, section_lines, variant (chosen, alternative, alternative_2; for places 6 and 7: rule, nonconforming; nonconforming for place-38-alternative) |
 | note | optional: how an alternative was obtained, or why it is not executed |
 | reading_switches | optional: the reading assumed instead of the chosen one (see below) |
 | input | depends on kind |
@@ -94,7 +104,8 @@ A case:
 - encoding: one `block`, or `block_json` (the block as JSON text, for input that is not valid). Expected: `chosen`
   (the canonical form under the rule), `chosen_hex` (its bytes), `rfc8785`, the two non-conforming encodings,
   `chosen_equals_rfc8785`, and the root after one fold for each; or `error` json_invalid for invalid input.
-- number: a number `lexeme`, its RFC 8785 form and its value as seq (null if not an unsigned 32-bit integer).
+- number: a number `lexeme`, its RFC 8785 form and its value as seq (null if not an unsigned 32-bit integer, or if
+  the lexeme is not the canonical spelling of seq: digits only, no sign, no leading zero, no fraction, no exponent).
 - packet: `hex` of a packet; expected fields or `reason`.
 - frames: `stream_hex`; packet lengths from the fixed fields (Section 10, self-delimiting).
 - summary: a block, a raw text (or none), optionally the test method and the test predicate.
@@ -150,7 +161,9 @@ without vectors here. Places 33 to 38 record additional implementation choices; 
 the individual cases.
 
 Places 6 and 7 are no longer open. For -01 they are the agreed rule for strings described above, and the table
-gives that rule in their last column. Their earlier alternatives are kept as non-conforming encodings.
+gives that rule in their last column. Their earlier alternatives are kept as non-conforming encodings. The
+alternative at place 38 (case-insensitive comparison of content_hash) is non-conforming under -01 as well, see
+"Following -01" above.
 
 | Place | Sections and lines of -00 | What is open | Chosen reading in these vectors |
 |---|---|---|---|
